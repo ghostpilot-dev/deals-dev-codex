@@ -1,0 +1,23 @@
+{
+  "name": "deals-dev-codex",
+  "version": "0.1.0",
+  "description": "deals.dev for Codex — sponsored lines during agent runs, 70% of the ad revenue goes to you.",
+  "license": "MIT",
+  "bin": {
+    "deals-dev-codex": "./notify.js"
+  },
+  "files": [
+    "notify.js",
+    "install.sh",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "codex",
+    "openai",
+    "notify",
+    "hook"
+  ]
+}
