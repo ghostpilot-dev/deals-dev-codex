@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "deals.dev for Codex — sponsored lines during agent runs, 70% of the ad revenue goes to you.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghostpilot-dev/deals-dev-codex.git"
+  },
+  "homepage": "https://github.com/ghostpilot-dev/deals-dev-codex#readme",
   "bin": {
     "deals-dev-codex": "./notify.js"
   },
