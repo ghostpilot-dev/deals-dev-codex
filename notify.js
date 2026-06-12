@@ -44,6 +44,12 @@ function getConfig() {
   };
 }
 
+/** Strip control chars from advertiser text before it reaches the notifier. */
+function sanitizeText(s) {
+  // eslint-disable-next-line no-control-regex
+  return String(s == null ? "" : s).replace(/[\x00-\x1f\x7f-\x9f]/g, "");
+}
+
 function desktopNotify(title, body) {
   if (process.platform === "darwin") {
     execFile("osascript", [
@@ -112,9 +118,9 @@ async function main() {
         if (data.ad) {
           cache.ad = data.ad;
           cache.fetchedAt = Date.now();
-          const label = data.ad.brandName
-            ? `${data.ad.brandName} — ${data.ad.adLine}`
-            : data.ad.adLine;
+          const brand = sanitizeText(data.ad.brandName);
+          const line = sanitizeText(data.ad.adLine);
+          const label = brand ? `${brand} — ${line}` : line;
           desktopNotify("Codex done · sponsored by", label);
         }
       }
